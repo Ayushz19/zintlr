@@ -1,23 +1,23 @@
 import logo from './logo.svg';
+import Page1 from '../src/Components/Page1'
+import Page2 from '../src/Components/Page2'
+import Navbar from '../src/Components/Navbar'
+import dashboard from '../src/Components/dashboard.png'
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div  className='main-container'>
+      <Navbar  li={[
+        ["Dashboard", dashboard],
+        ["Restautant’s", dashboard],
+        ["Manage User’s", dashboard],
+        ["Manage Order’s", dashboard],
+        ["Manage Coupon’s", dashboard]
+      ]} />
+      <Page1 />
+      
     </div>
   );
 }
