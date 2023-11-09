@@ -22,6 +22,8 @@
     box-shadow: grey;
     justify-content: space-between;
     display: flex;
+    border-color: black;
+    height: max-content;
     
 }
 
@@ -30,4 +32,18 @@ input{
     padding: 0.5rem 1rem;
     /* margin-top: 20px; */
     margin-left: 15px;
+}
+.box-2
+{
+    margin-top: 3rem;
+}
+
+.name-box >*{
+    margin: 5px;
+    margin-left: 20px;
+}
+.add{
+    border-radius: 8px;
+    padding: 6px 15px;
+    margin: 5px;
 }
