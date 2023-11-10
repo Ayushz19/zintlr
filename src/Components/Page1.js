@@ -4,50 +4,44 @@ import money from "./money.png";
 import graph from "./graph.png";
 import working from "./working.png";
 import { LineChart } from "@mui/x-charts/LineChart";
-import { BarChart } from '@mui/x-charts/BarChart';
+import { BarChart } from "@mui/x-charts/BarChart";
+
+const uData = [4000, 3000, 2000, 2780, 1890, 2390];
+const pData = [2400, 1398, 9800, 3908, 4800, 3800];
+const xLabels = ["1", "2", "3", "4", "5"];
 
 const chartSetting = {
-    xAxis: [
-      {
-        label: 'number of consumer',
-      },
-    ],
-    width: 500,
-    height: 400,
-  };
-  const dataset = [
-    
-    
-    
-    
-   
+  xAxis: [
     {
-      london: 60,
-      paris: 63,
-      newYork: 103,
-      seoul: 144,
-      month: 'very active',
+      label: "number of consumer",
     },
-    {
-      london: 59,
-      paris: 60,
-      newYork: 105,
-      seoul: 319,
-      month: 'moderately active',
-    },
-    {
-      london: 65,
-      paris: 60,
-      newYork: 106,
-      seoul: 249,
-      month: 'least active',
-    },
-    
-    
-    
-  ];
-  
-  const valueFormatter = (value: number) => `${value}mm`;
+  ],
+  width: 500,
+  height: 400,
+};
+const dataset = [
+  {
+    london: 60,
+    paris: 63,
+    newYork: 103,
+    seoul: 144,
+    month: "very active",
+  },
+  {
+    london: 59,
+    paris: 60,
+    newYork: 105,
+    seoul: 319,
+    month: "moderately active",
+  },
+  {
+    london: 65,
+    paris: 60,
+    newYork: 106,
+    seoul: 249,
+    month: "least active",
+  },
+];
 
 const Page1 = () => {
   return (
@@ -55,7 +49,7 @@ const Page1 = () => {
       <div className="box-1">
         <div className="left">
           <input
-            className="rounded-md px-8 ms-8"
+            className="rounded-md px-8 ms-8 border-neutral-200 p-3 border-2"
             type="text"
             placeholder="Search here"
           />
@@ -288,48 +282,113 @@ const Page1 = () => {
                 </div>
               </div>
             </div>
-            <div className="anyalysis mb-8">
+            <div className="anyalysis mb-8 border-neutral-200 p-3 border-2 rounded-md">
               <div className="mt-0">
-                <h3 className="font-bold">Consumer anyalysis</h3>
+                <h3 className="font-bold ">Consumer anyalysis</h3>
                 <div className="left flex">
                   <div className="activity flex gap-10 mt-8">
-                    <button className="">Activity</button>
+                    <button className="underline-offset-4 text-blue-400">Activity</button>
                     <button className="">Stock</button>
                     <button className="">Volume</button>
                   </div>
                   <div className="right flex flex-col mx-20 gap-4">
                     <div className="weeks gap-10 flex">
-                      <button className=" border-neutral-400 border-2 rounded-md p-[4px]">Past Weeks</button>
-                      <button className=" border-neutral-400 border-2 rounded-md p-[4px]">Past Month</button>
-                      <button className="border-neutral-400 border-2 rounded-md p-[4px]">Past Year</button>
-                      <button className="border-neutral-400 border-2 rounded-md p-[4px]">All Time</button>
+                      <button className=" border-neutral-400 border-2 rounded-md  p-[2px] text-xs whitespace-nowrap  ">
+                        Past Weeks
+                      </button>
+                      <button className=" border-neutral-400 border-2 rounded-md  whitespace-nowrap p-[2px] text-xs bg-black text-white ">
+                        Past Month
+                      </button>
+                      <button className="border-neutral-400 border-2 rounded-md whitespace-nowrap p-[2px] text-xs">
+                        Past Year
+                      </button>
+                      <button className="border-neutral-400 border-2 rounded-md whitespace-nowrap p-[2px] text-xs">
+                        All Time
+                      </button>
                     </div>
                     <div className="">
                       <div className="zones flex gap-10">
-                        <button className="border-neutral-400 border-2 rounded-md p-[4px]">Filter By Associates</button>
-                        <button className="border-neutral-400 border-2 rounded-md p-[4px]">filter by zone</button>
-                        <button className="border-neutral-400 border-2 rounded-md p-[4px]">Filter by account type</button>
-                        
+                        <button className="border-neutral-400 border-2 rounded-md whitespace-nowrap p-[2px] text-xs underline-offset-1">
+                          Filter By Associates
+                        </button>
+                        <button className="border-neutral-400 border-2 rounded-md whitespace-nowrap p-[2px] text-xs">
+                          filter by zone
+                        </button>
+                        <button className="border-neutral-400 border-2 rounded-md whitespace-nowrap p-[2px] text-xs">
+                          Filter by account type
+                        </button>
                       </div>
                     </div>
                   </div>
-                  
                 </div>
               </div>
               <div className="mx-6">
-              <BarChart
-      dataset={dataset}
-      yAxis={[{ scaleType: 'band', dataKey: 'month' }]}
-      series={[{ dataKey: 'seoul', label: 'Seoul rainfall', valueFormatter }]}
-      layout="horizontal"
-      {...chartSetting}
-    />
+                <BarChart
+                  dataset={dataset}
+                  yAxis={[{ scaleType: "band", dataKey: "month" }]}
+                  series={[{ dataKey: "seoul" }]}
+                  layout="horizontal"
+                  {...chartSetting}
+                />
               </div>
             </div>
           </div>
         </div>
 
-        <div className="right-side"></div>
+        <div className="right-side mt-10 ">
+          <div className="bar-chart  border-neutral-400 border-2 rounded-md  ">
+            <h3>Highest Revenue Earned</h3>
+            <div className="bar-btns flex gap-4 mt-2">
+              <button className=" border-neutral-400 border-2 rounded-md p-[2px] text-xs bg-black text-white">
+                Past Weeks
+              </button>
+              <button className=" border-neutral-400 border-2 rounded-md p-[2px] text-xs">
+                Past Month
+              </button>
+              <button className="border-neutral-400 border-2 rounded-md p-[2px] text-xs">
+                Past Year
+              </button>
+              <button className="border-neutral-400 border-2 rounded-md p-[2px] text-xs">
+                All Time
+              </button>
+            </div>
+            <BarChart
+              width={415}
+              height={250}
+              series={[
+                { data: pData, label: "revenue", id: "pvId" },
+                { data: uData, label: "transaction ", id: "uvId" },
+              ]}
+              xAxis={[{ data: xLabels, scaleType: "band" }]}
+            />
+          </div>
+          <div className="bar-chart  border-neutral-400 border-2 rounded-md mt-5 p-6">
+            <h3>Highest Revenue Earned</h3>
+            <div className="bar-btns flex gap-4 mt-2">
+              <button className=" border-neutral-400 border-2 rounded-md p-[2px] text-xs">
+                Past Weeks
+              </button>
+              <button className=" border-neutral-400 border-2 rounded-md p-[2px] text-xs bg-black text-white">
+                Past Month
+              </button>
+              <button className="border-neutral-400 border-2 rounded-md p-[2px] text-xs">
+                Past Year
+              </button>
+              <button className="border-neutral-400 border-2 rounded-md p-[2px] text-xs">
+                All Time
+              </button>
+            </div>
+            <BarChart
+              width={415}
+              height={250}
+              series={[
+                { data: pData, label: "revenue", id: "pvId" },
+                { data: uData, label: "transaction ", id: "uvId" },
+              ]}
+              xAxis={[{ data: xLabels, scaleType: "band" }]}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
