@@ -5,6 +5,7 @@ import graph from "./graph.png";
 import working from "./working.png";
 import { LineChart } from "@mui/x-charts/LineChart";
 import { BarChart } from "@mui/x-charts/BarChart";
+import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 
 const uData = [4000, 3000, 2000, 2780, 1890, 2390];
 const pData = [2400, 1398, 9800, 3908, 4800, 3800];
@@ -60,13 +61,16 @@ const Page1 = () => {
           <img className="moneybag" src={money} />
           <img className="moneybag" src={money} />
           <img className="moneybag" src={money} />
-          <div className="flex  me-8">
+          <div className="flex  me-8 border-2 rounded-lg border-gray-400 p-2">
             <span className="text-red-400">Gold</span>
             <img className="moneybag" src={graph} />
-            <div className="buy mt-[5px]">
+            <div className="buy mt-[-12px]">
               <span>Buy:7390.00</span>
               <span>Buy:7657.00</span>
             </div>
+          </div>
+          <div className="user-img border-4 rounded-[100%] border-cyan-600 p-2 ">
+            <img src={money} className="moneybag " />
           </div>
         </div>
       </div>
@@ -76,9 +80,11 @@ const Page1 = () => {
             <h2 className="text-3xl">Hello Ayush !</h2>
             <p className="mt-3">You have 134 conusmer this week</p>
             <div className=" space-x-2 mt-3 flex    ">
-              <button className="  rounded-full border-2 border-black  bg-black text-white p-1 px-3">
-                Add consumer
-              </button>
+              <Link to="/add">
+                <button className="  rounded-full border-2 border-black  bg-black text-white p-1 px-3 ">
+                  Add consumer
+                </button>
+              </Link>
               <button className="border-black rounded-full border-2 p-1 ">
                 Manage consumer
               </button>
@@ -253,7 +259,7 @@ const Page1 = () => {
                   </div>
                   <h2 className="text-2xl mx-6">₹1,35,342</h2>
                 </div>
-                <div className="gold">
+                <div className="gold mt-[-12px]">
                   <div className="gold-1 bg-amber-100 p-6 mx-4 flex gap-4 rounded-lg">
                     <div className="bullion-svg">
                       <svg
@@ -271,10 +277,10 @@ const Page1 = () => {
                       <p className="text-sm text-purple-600">Wallet History</p>
                     </div>
                     <div className="g-s ">
-                      <p>
+                      <p className="bg-amber-200 rounded-lg text-amber-700">
                         Gold<span className="mx-7">4232gm</span>
                       </p>
-                      <p className="my-7">
+                      <p className="my-7 bg-zinc-100 rounded-lg text-zinc-700">
                         Silver<span className="mx-7">4232gm</span>
                       </p>
                     </div>
@@ -287,7 +293,9 @@ const Page1 = () => {
                 <h3 className="font-bold ">Consumer anyalysis</h3>
                 <div className="left flex">
                   <div className="activity flex gap-10 mt-8">
-                    <button className="underline-offset-4 text-blue-400">Activity</button>
+                    <button className="underline-offset-4 text-blue-400">
+                      Activity
+                    </button>
                     <button className="">Stock</button>
                     <button className="">Volume</button>
                   </div>

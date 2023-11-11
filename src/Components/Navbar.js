@@ -20,13 +20,13 @@ const CustomNav = ({ li }) => {
       <ul className="navbar__list  ">
         {li.map((item, i) => (
           <div className="navbar__li-box flex mx-[-12px]" key={i}>
-            <img className="w-12  "
+            <img className=" "
               src={item[1]}
               alt={item[1]}
               style={{ paddingLeft: window === false ? 27 : 17 }}
             />
             <li
-              className="navbar__li whitespace-nowrap text-sm"
+              className="navbar__li  text-sm"
               style={{ display: window === false ? "inline-block" : "none" }}
             >
               {item[0]}
