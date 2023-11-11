@@ -17,16 +17,16 @@ const CustomNav = ({ li }) => {
       <div className="burger" onClick={() => openClose()}>
         <img src={ham} alt="burger" />
       </div>
-      <ul className="navbar__list">
+      <ul className="navbar__list  ">
         {li.map((item, i) => (
-          <div className="navbar__li-box" key={i}>
-            <img
+          <div className="navbar__li-box flex mx-[-12px]" key={i}>
+            <img className="w-12  "
               src={item[1]}
               alt={item[1]}
               style={{ paddingLeft: window === false ? 27 : 17 }}
             />
             <li
-              className="navbar__li"
+              className="navbar__li whitespace-nowrap text-sm"
               style={{ display: window === false ? "inline-block" : "none" }}
             >
               {item[0]}

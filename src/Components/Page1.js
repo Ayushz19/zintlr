@@ -63,7 +63,7 @@ const Page1 = () => {
           <div className="flex  me-8">
             <span className="text-red-400">Gold</span>
             <img className="moneybag" src={graph} />
-            <div className="buy">
+            <div className="buy mt-[5px]">
               <span>Buy:7390.00</span>
               <span>Buy:7657.00</span>
             </div>
@@ -134,7 +134,7 @@ const Page1 = () => {
                 <p className="text-3xl "> 1,342</p>
               </div>
             </div>
-            <div className="white-box mt-1 h-[8em] mx-[-16px]  flex border-neutral-200	border-2 p-4 rounded-lg">
+            <div className="white-box mt-1 h-[8em] mx-[-16px]  flex border-neutral-200	px-1 border-2 p-4 rounded-lg mx-[-27px]">
               <div>
                 <div className="direct flex">
                   Direct Consumers
@@ -147,7 +147,7 @@ const Page1 = () => {
                   >
                     <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z" />
                   </svg>
-                  <span className="mx-8 mt-[2px]">342</span>
+                  <span className="mx-8  mt-[2px]">342</span>
                 </div>
                 <div className="direct flex mt-7">
                   Through Associates
@@ -177,7 +177,7 @@ const Page1 = () => {
                   </svg>
                   <span className="mx-8 mt-[2px]">342</span>
                 </div>
-                <div className="direct flex mt-7">
+                <div className="direct flex mt-7 nr-4">
                   Through Associates
                   <svg
                     className="mt-[6px] mx-2"
@@ -336,7 +336,7 @@ const Page1 = () => {
         </div>
 
         <div className="right-side mt-10 ">
-          <div className="bar-chart  border-neutral-400 border-2 rounded-md  ">
+          <div className="bar-chart  border-neutral-400 border-2 rounded-md p-4 ">
             <h3>Highest Revenue Earned</h3>
             <div className="bar-btns flex gap-4 mt-2">
               <button className=" border-neutral-400 border-2 rounded-md p-[2px] text-xs bg-black text-white">
@@ -362,7 +362,7 @@ const Page1 = () => {
               xAxis={[{ data: xLabels, scaleType: "band" }]}
             />
           </div>
-          <div className="bar-chart  border-neutral-400 border-2 rounded-md mt-5 p-6">
+          <div className="bar-chart  border-neutral-400 border-2 rounded-md mt-5 p-6 ">
             <h3>Highest Revenue Earned</h3>
             <div className="bar-btns flex gap-4 mt-2">
               <button className=" border-neutral-400 border-2 rounded-md p-[2px] text-xs">

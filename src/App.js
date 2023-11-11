@@ -11,12 +11,16 @@ function App() {
     <div  className='main-container'>
       <Navbar  li={[
         ["Dashboard", dashboard],
-        ["Restautant’s", dashboard],
-        ["Manage User’s", dashboard],
-        ["Manage Order’s", dashboard],
-        ["Manage Coupon’s", dashboard]
+        ["Bullion Operation", dashboard],
+        ["Transaction", dashboard],
+        ["Your Network", dashboard],
+        ["Other Operation", dashboard],
+        ["Manage Bank Account", dashboard],
+        ["FAQ", dashboard],
+        ["Customize Dashboard", dashboard]
       ]} />
       <Page1 />
+      {/* <Page2 /> */}
       
     </div>
   );
