@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import styles from './Navbar.scss'
-import ham from  './ham.png'
+import styles from "./Navbar.scss";
+import ham from "./ham.png";
 
 const CustomNav = ({ li }) => {
   const [window, setWindow] = useState(false);
@@ -20,7 +20,8 @@ const CustomNav = ({ li }) => {
       <ul className="navbar__list  ">
         {li.map((item, i) => (
           <div className="navbar__li-box flex mx-[-12px]" key={i}>
-            <img className=" "
+            <img
+              className=" "
               src={item[1]}
               alt={item[1]}
               style={{ paddingLeft: window === false ? 27 : 17 }}
@@ -34,6 +35,27 @@ const CustomNav = ({ li }) => {
           </div>
         ))}
       </ul>
+      <div className="stock mt-10 p-2">
+        <h3 className="mx-3"> Your Stock</h3>
+        <div className="stock-1 p-3 text-xs border-6  rounded-lg bg-blue-200">
+          <div className="tru-gold whitespace-nowrap ">
+            <p className="flex">
+              TrueCoin <span className="text-red-500">Gold{" "}</span>
+              <span className="mx-3 whitespace-nowrap ">7.3k gm</span>
+            </p>
+
+            <p className="text-green-500">6.18(+2.26%)</p>
+          </div>
+          <div className="tru-gold whitespace-nowrap mt-2 ">
+            <p className="flex">
+              TrueCoin <span className="text-red-500">Silver{" "}</span>
+              <span className="mx-3 whitespace-nowrap ">7.3k gm</span>
+            </p>
+
+            <p className="text-green-500">6.18(+56%)</p>
+          </div>
+        </div>
+      </div>
     </nav>
   );
 };
