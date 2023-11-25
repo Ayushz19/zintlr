@@ -498,7 +498,7 @@ const Page2 = () => {
           <tbody>
             {data.map((elem) => (
               <tr>
-                <td className="text-center whitespace-nowrap text-blue-700" onClick={() => setmodalopen(true)}>
+                <td className="text-center whitespace-nowrap text-blue-700 cursor-pointer" onClick={() => setmodalopen(true)}>
                   {elem.name}
                   <span className="bg-red-400 text-[10px] rounded-lg mx-2 text-white p-1">
                     {elem.number}
