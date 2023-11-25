@@ -118,7 +118,7 @@ const data = [
 ];
 
 const Page2 = () => {
-  const [modalopen,setmodalopen] =useState(true)
+  const [modalopen,setmodalopen] =useState(false)
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
