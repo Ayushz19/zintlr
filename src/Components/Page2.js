@@ -1,113 +1,165 @@
-import React from "react";
+/* eslint-disable jsx-a11y/alt-text */
+import React, { useState } from "react";
 import "./Page1.css";
 import money from "./money.png";
 import graph from "./graph.png";
 import working from "./working.png";
 
+import Popper from "@mui/material/Popper";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import Checkbox from "@mui/material/Checkbox";
+import TransitionsModal from './sidebar.js'
+
 const data = [
-    {
-        name: "Raghav",
-        number: 3,
-        assets: {
-            number: 23424,
-            gold: 232,
-            silver: 834.2,
-            blue:978
-        },
-        revenue: 32543,
-        kyc_status: "done",
-        facilator: {
-            from: {
-                name: "Ankita",
-                rank: "b2b field"
-            },
-            to: {
-                name: "jbcsuub",
-                rank: "b2b field"
-            }
-        },
-        zone: "south",
-        account_type: "Buisness",
-        tpa: "klnblysuf"
+  {
+    name: "Raghav",
+    number: 3,
+    assets: {
+      number: 23424,
+      gold: 232,
+      silver: 834.2,
+      blue: 978,
     },
-    {
-        name: "Raghav",
-        number: 3,
-        assets: {
-            number: 23424,
-            gold: 232,
-            silver: 834.2,
-            blue:978
-        },
-        revenue: 32543,
-        kyc_status: "pending    ",
-        facilator: {
-            from: {
-                name: "Ankita",
-                rank: "b2b field"
-            },
-            to: {
-                name: "jbcsuub",
-                rank: "b2b field"
-            }
-        },
-        zone: "south",
-        account_type: "Pay And Use",
-        tpa: "876328264872@trucard"
+    revenue: 32543,
+    kyc_status: "done",
+    facilator: {
+      from: {
+        name: "Ankita",
+        rank: "b2b field",
+      },
+      to: {
+        name: "jbcsuub",
+        rank: "b2b field",
+      },
     },
-    {
-        name: "Raghav",
-        number: 3,
-        assets: {
-            number: 23424,
-            gold: 232,
-            silver: 834.2,
-            blue:978
-        },
-        revenue: 32543,
-        kyc_status: "done",
-        facilator: {
-            from: {
-                name: "Ankita",
-                rank: "b2b field"
-            },
-            to: {
-                name: "jbcsuub",
-                rank: "b2b field"
-            }
-        },
-        zone: "south",
-        account_type: ";hyfef",
-        tpa: "9874579359@trucard"
+    zone: "south",
+    account_type: "Buisness",
+    tpa: "klnblysuf",
+  },
+  {
+    name: "Raghav",
+    number: 3,
+    assets: {
+      number: 23424,
+      gold: 232,
+      silver: 834.2,
+      blue: 978,
     },
-    // {
-    //     name: "Raghav",
-    //     number: 3,
-    //     assets: {
-    //         number: 23424,
-    //         gold: 232,
-    //         silver: 834.2,
-    //         blue:978
-    //     },
-    //     revenue: 32543,
-    //     kyc_status: "pending",
-    //     facilator: {
-    //         from: {
-    //             name: "Ankita",
-    //             rank: "b2b field"
-    //         },
-    //         to: {
-    //             name: "jbcsuub",
-    //             rank: ";johi"
-    //         }
-    //     },
-    //     zone: "south",
-    //     account_type: ";hyfef",
-    //     tpa: "klnblysuf"
-    // }
-]
+    revenue: 32543,
+    kyc_status: "pending    ",
+    facilator: {
+      from: {
+        name: "Ankita",
+        rank: "b2b field",
+      },
+      to: {
+        name: "jbcsuub",
+        rank: "b2b field",
+      },
+    },
+    zone: "south",
+    account_type: "Pay And Use",
+    tpa: "876328264872@trucard",
+  },
+  {
+    name: "Raghav",
+    number: 3,
+    assets: {
+      number: 23424,
+      gold: 232,
+      silver: 834.2,
+      blue: 978,
+    },
+    revenue: 32543,
+    kyc_status: "done",
+    facilator: {
+      from: {
+        name: "Ankita",
+        rank: "b2b field",
+      },
+      to: {
+        name: "jbcsuub",
+        rank: "b2b field",
+      },
+    },
+    zone: "south",
+    account_type: ";hyfef",
+    tpa: "9874579359@trucard",
+  },
+  // {
+  //     name: "Raghav",
+  //     number: 3,
+  //     assets: {
+  //         number: 23424,
+  //         gold: 232,
+  //         silver: 834.2,
+  //         blue:978
+  //     },
+  //     revenue: 32543,
+  //     kyc_status: "pending",
+  //     facilator: {
+  //         from: {
+  //             name: "Ankita",
+  //             rank: "b2b field"
+  //         },
+  //         to: {
+  //             name: "jbcsuub",
+  //             rank: ";johi"
+  //         }
+  //     },
+  //     zone: "south",
+  //     account_type: ";hyfef",
+  //     tpa: "klnblysuf"
+  // }
+];
 
 const Page2 = () => {
+  const [modalopen,setmodalopen] =useState(true)
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popper" : undefined;
+  const [anchorEl2, setAnchorEl2] = React.useState(null);
+
+  const handleClick2 = (event) => {
+    setAnchorEl2(anchorEl2 ? null : event.currentTarget);
+  };
+
+  const open2 = Boolean(anchorEl2);
+  const id2 = open ? "revenue" : undefined;
+
+  const [anchorEl1, setAnchorEl1] = React.useState(null);
+
+  const handleClick1 = (event) => {
+    setAnchorEl1(anchorEl1 ? null : event.currentTarget);
+  };
+
+  const open1 = Boolean(anchorEl1);
+  const id1 = open ? "zone" : undefined;
+
+  const [checked, setChecked] = React.useState([0]);
+
+  const handleToggle = (value) => () => {
+    const currentIndex = checked.indexOf(value);
+    const newChecked = [...checked];
+
+    if (currentIndex === -1) {
+      newChecked.push(value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+
+    setChecked(newChecked);
+  };
+
   return (
     <div className="container">
       <div className="box-1">
@@ -227,68 +279,287 @@ const Page2 = () => {
           <thead className="bg-blue-200">
             <th>Costumer Name</th>
             <th>Assets</th>
-            <th>Revenue</th>
-            <th>KYC Status</th>
+
+            <th>
+              <button onClick={handleClick2} className="flex">
+                Revenue
+                <span>
+                  <svg
+                    class="w-3 h-3 text-gray-800 dark:text-black mt-2 mx-2"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 8"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <Popper id={id2} open={open2} anchorEl={anchorEl2}>
+                <div className="drop-down border-2 p-4 z-11111  ">
+                  <List
+                    sx={{
+                      width: "100%",
+                      maxWidth: 360,
+                      bgcolor: "background.paper",
+                    }}
+                  >
+                    {[
+                      { text: "pending", bg: "red-300", col: "red-700" },
+                      {
+                        text: "In Progress",
+                        bg: "yellow-200",
+                        col: "yellow-900",
+                      },
+                      { text: "Done", bg: "green-300", col: "green-700" },
+                      { text: "Rejected", bg: "stone-200", col: "stone-700" },
+                    ].map((value) => {
+                      const labelId = `checkbox-list-label-${value}`;
+
+                      return (
+                        <ListItem key={value} disablePadding>
+                          <ListItemButton
+                            role={undefined}
+                            onClick={handleToggle(value)}
+                            dense
+                          >
+                            <ListItemIcon>
+                              <Checkbox
+                                edge="start"
+                                checked={checked.indexOf(value) !== -1}
+                                tabIndex={-1}
+                                disableRipple
+                                inputProps={{ "aria-labelledby": labelId }}
+                              />
+                            </ListItemIcon>
+                            <button
+                              className={`bg-${value.bg} rounded-lg pl-2 pr-2  text-${value.col}`}
+                            >
+                              {value.text}
+                            </button>
+                          </ListItemButton>
+                        </ListItem>
+                      );
+                    })}
+                  </List>
+                </div>
+              </Popper>
+            </th>
+
+            <th>
+              <button onClick={handleClick} className="flex">
+                KYC Status
+                <span>
+                  <svg
+                    class="w-3 h-3 text-gray-800 dark:text-black mt-2 mx-2"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 8"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <Popper id={id} open={open} anchorEl={anchorEl}>
+                <div className="drop-down border-2 p-4 z-11111  ">
+                  <List
+                    sx={{
+                      width: "100%",
+                      maxWidth: 360,
+                      bgcolor: "background.paper",
+                    }}
+                  >
+                    {[
+                      { text: "pending", bg: "red-300", col: "red-700" },
+                      {
+                        text: "In Progress",
+                        bg: "yellow-300",
+                        col: "yellow-300",
+                      },
+                      { text: "Done", bg: "green-300", col: "green-700" },
+                      { text: "Rejected", bg: "stone-200", col: "stone-700" },
+                    ].map((value) => {
+                      const labelId = `checkbox-list-label-${value}`;
+
+                      return (
+                        <ListItem key={value} disablePadding>
+                          <ListItemButton
+                            role={undefined}
+                            onClick={handleToggle(value)}
+                            dense
+                          >
+                            <ListItemIcon>
+                              <Checkbox
+                                edge="start"
+                                checked={checked.indexOf(value) !== -1}
+                                tabIndex={-1}
+                                disableRipple
+                                inputProps={{ "aria-labelledby": labelId }}
+                              />
+                            </ListItemIcon>
+                            <button
+                              className={`bg-${value.bg} rounded-lg pl-2 pr-2  text-${value.col}`}
+                            >
+                              {value.text}
+                            </button>
+                          </ListItemButton>
+                        </ListItem>
+                      );
+                    })}
+                  </List>
+                </div>
+              </Popper>
+            </th>
             <th>Facilator</th>
-            <th>Zone</th>
+            <th>
+              <button onClick={handleClick1} className="flex mx-12">
+                Zone
+                <span>
+                  <svg
+                    class="w-3 h-3 text-gray-800 dark:text-black mt-2 mx-2"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 8"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <Popper id={id1} open={open1} anchorEl={anchorEl1}>
+                <div className="drop-down border-2 p-4 z-11111  ">
+                  <List
+                    sx={{
+                      width: "100%",
+                      maxWidth: 360,
+                      bgcolor: "background.paper",
+                    }}
+                  >
+                    {[
+                      { text: "South" },
+                      {
+                        text: "West",
+                      },
+                      { text: "North" },
+                    ].map((value) => {
+                      const labelId = `checkbox-list-label-${value}`;
+
+                      return (
+                        <ListItem key={value} disablePadding>
+                          <ListItemButton
+                            role={undefined}
+                            onClick={handleToggle(value)}
+                            dense
+                          >
+                            <ListItemIcon>
+                              <Checkbox
+                                edge="start"
+                                checked={checked.indexOf(value) !== -1}
+                                tabIndex={-1}
+                                disableRipple
+                                inputProps={{ "aria-labelledby": labelId }}
+                              />
+                            </ListItemIcon>
+                            <button
+                              className={`bg-${value.bg} rounded-lg pl-2 pr-2  text-${value.col}`}
+                            >
+                              {value.text}
+                            </button>
+                          </ListItemButton>
+                        </ListItem>
+                      );
+                    })}
+                  </List>
+                </div>
+              </Popper>
+            </th>
             <th>Account Type</th>
             <th>TPA</th>
           </thead>
           <tbody>
-            {
-                data.map(elem =>  <tr>
-                    <td className="text-center whitespace-nowrap text-blue-700">
-                      {elem.name}
-                      <span className="bg-red-400 text-[10px] rounded-lg mx-2 text-white p-1">
-                        {elem.number}
-                      </span>
-                    </td>
-                    <td className="text-center ">
-                      {elem.assets.number}
-                      <div className="flex text-center gap-2 mx-4  ">
-                        <button className="bg-amber-200 rounded-lg text-amber-700 text-[12px] pl-1 pr-1">
-                          {elem.assets.gold}g
-                        </button>
-                        <button className="bg-zinc-300 rounded-lg text-zinc-700 text-[12px] pl-1 pr-1">
-                          {elem.assets.silver}
-                        </button>
-                        <button className=" rounded-lg bg-cyan-300 text-cyan-700 text-[12px]  pl-1 pr-1">
-                          {elem.assets.blue}
-                        </button>
-                      </div>
-                    </td>
-                    <td className="text-center">{elem.revenue}</td>
-                    <td className="text-center">
-                      {
-                        elem.kyc_status === "done" ? <button className="bg-green-300 rounded-lg pl-2 pr-2  mt-4 text-green-700">
-                        Done
-                      </button> : <button className="bg-red-300 rounded-lg pl-2 pr-2  mt-4 text-red-700">
-                  Pending
-                </button>
-                      }
-                    </td>
-                    <td className="text-center">
-                      <div className="flex gap-4">
-                        <div>
-                          <p className="text-[8px] whitespace-nowrap">
+            {data.map((elem) => (
+              <tr>
+                <td className="text-center whitespace-nowrap text-blue-700" onClick={() => setmodalopen(true)}>
+                  {elem.name}
+                  <span className="bg-red-400 text-[10px] rounded-lg mx-2 text-white p-1">
+                    {elem.number}
+                  </span>
+                </td>
+                <td className="text-center ">
+                  {elem.assets.number}
+                  <div className="flex text-center gap-2 mx-4  ">
+                    <button className="bg-amber-200 rounded-lg text-amber-700 text-[12px] pl-1 pr-1">
+                      {elem.assets.gold}g
+                    </button>
+                    <button className="bg-zinc-300 rounded-lg text-zinc-700 text-[12px] pl-1 pr-1">
+                      {elem.assets.silver}
+                    </button>
+                    <button className=" rounded-lg bg-cyan-300 text-cyan-700 text-[12px]  pl-1 pr-1">
+                      {elem.assets.blue}
+                    </button>
+                  </div>
+                </td>
+                <td className="text-center">{elem.revenue}</td>
+                <td className="text-center">
+                  {elem.kyc_status === "done" ? (
+                    <button className="bg-green-300 rounded-lg pl-2 pr-2  mt-4 text-green-700">
+                      Done
+                    </button>
+                  ) : (
+                    <button className="bg-red-200 rounded-lg pl-2 pr-2  mt-4 text-red-700">
+                      Pending
+                    </button>
+                  )}
+                </td>
+                <td className="text-center">
+                  <div className="flex gap-4">
+                    <div>
+                      <p className="text-[8px] whitespace-nowrap">
                         {elem.facilator.from.rank}
-                          </p>
-                          <p className="whitespace-nowrap">{elem.facilator.from.name}</p>
-                        </div>
-                        <div>
-                          <p className="text-[8px]">{elem.facilator.to.rank}</p>
-                          <p className=" whitespace-nowrap">{elem.facilator.to.name}</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="text-center">{elem.zone}</td>
-                    <td className="text-center">{elem.account_type}</td>
-                    <td className="text-center">{elem.tpa}</td>
-                  </tr>)
-            }
+                      </p>
+                      <p className="whitespace-nowrap">
+                        {elem.facilator.from.name}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[8px]">{elem.facilator.to.rank}</p>
+                      <p className=" whitespace-nowrap">
+                        {elem.facilator.to.name}
+                      </p>
+                    </div>
+                  </div>
+                </td>
+                <td className="text-center">{elem.zone}</td>
+                <td className="text-center">{elem.account_type}</td>
+                <td className="text-center">{elem.tpa}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
+      <span className="bg-yellow-200"></span>
+      <span className="bg-stone-200"></span>
+
+      <TransitionsModal open={modalopen} setOpen={setmodalopen} />
     </div>
   );
 };
