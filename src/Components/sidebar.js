@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import * as React from "react";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
@@ -5,6 +6,47 @@ import Modal from "@mui/material/Modal";
 import Slide from "@mui/material/Slide";
 // import Button from '@mui/material/Button';
 // import Typography from '@mui/material/Typography';
+import money from "./money.png";
+import { LineChart } from "@mui/x-charts/LineChart";
+import { BarChart } from "@mui/x-charts/BarChart";
+
+
+const uData = [4000, 3000, 2000, 2780, 1890, 2390];
+const pData = [2400, 1398, 9800, 3908, 4800, 3800];
+const xLabels = ["1", "2", "3", "4", "5"];
+
+const chartSetting = {
+  xAxis: [
+    {
+      label: "number of consumer",
+    },
+  ],
+  width: 250,
+  height: 150,
+};
+const dataset = [
+  {
+    london: 60,
+    paris: 63,
+    newYork: 103,
+    seoul: 144,
+    month: "very active",
+  },
+  {
+    london: 59,
+    paris: 60,
+    newYork: 105,
+    seoul: 319,
+    month: "moderately active",
+  },
+  {
+    london: 65,
+    paris: 60,
+    newYork: 106,
+    seoul: 249,
+    month: "least active",
+  },
+];
 
 const style = {
   position: "absolute",
@@ -83,7 +125,7 @@ export default function TransitionsModal({ open, setOpen }) {
                 </button>
               </div>
             </div>
-            <div className="names mt-2 mx-3 flex justify-between">
+            <div className="names mt-2 mx-3 flex justify-between border-2 border-stone-400">
               <div className="">
                 <p className="text-[9px]">B2B field executive</p>
                 <h2>Arun Jha</h2>
@@ -105,11 +147,94 @@ export default function TransitionsModal({ open, setOpen }) {
                 </button>
               </div>
             </div>
-            <div className="trans mx-4">
-                <h2 className="text-lg">Last transction </h2>
-                
-                    <p>View Transction</p>
-               
+            <div className="trans mx-6 flex justify-between mt-4 border-1 border-stone-200">
+              <h2 className="text-lg">Last transction </h2>
+
+              <p className="text-blue-700 text-[12px]">View All Transction</p>
+            </div>
+            <div className="money mx-5 flex justify-between mt-2 border-stone-200 border-2 p-1">
+              <div className="trans-id">
+                <p>Money Added</p>
+                <p className="text-sm">Transction id</p>
+                <p className="text-xs">Thu Ape 29 17:57:29 IST 2021</p>
+              </div>
+              <div className="amnt">
+                <h1 className="text-lg">+7390.00</h1>
+                <button className="bg-green-300 rounded-md pl-1 pr-1">
+                  Success
+                </button>
+              </div>
+            </div>
+            <div className="money-container mt-2 p-2">
+              <div className="wallet-1 flex justify-between p-2 border-2 border-stone-400">
+                <div className="flex">
+                  <div>
+                    <img src={money} className="moneybag " />
+                  </div>
+                  <div className="">
+                    TryCard Cash Wallet
+                    <p className="text-blue-700 text-[12px]">Wallet History</p>
+                  </div>
+                </div>
+                <div className="amana float-right ">
+                  <p className="text-lg  ">13,2131</p>
+                </div>
+              </div>
+              <div className="wallet-1 flex justify-between p-2 border-2 border-stone-400">
+                <div className="flex">
+                  <div>
+                    <img src={money} className="moneybag " />
+                  </div>
+                  <div className="">
+                    TryCard Cash Wallet
+                    <p className="text-blue-700 text-[12px]">Wallet History</p>
+                  </div>
+                </div>
+                <div className="amana float-right ">
+                  <p className="text-lg  ">13,2131</p>
+                </div>
+              </div>
+              <div className="wallet-1 flex justify-between p-2 border-2 border-stone-400">
+                <div className="flex">
+                  <div>
+                    <img src={money} className="moneybag " />
+                  </div>
+                  <div className="">
+                    TryCard Cash Wallet
+                    <p className="text-blue-700 text-[12px]">Wallet History</p>
+                  </div>
+                </div>
+                <div className="amana float-right ">
+                  <p className="text-lg  ">13,2131</p>
+                </div>
+              </div>
+            </div>
+            <div className="graphs-2 mx-4">
+                <h1>Activity Overview</h1>
+                <div className="earning-right ">
+                    <LineChart
+                      className=""
+                      xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                      series={[
+                        {
+                          data: [2, 5.5, 2, 8.5, 1.5, 5],
+                        },
+                      ]}
+                      width={250}
+                      height={150}
+                    />
+                    </div>
+                    <div className="">
+                    <BarChart
+              width={415}
+              height={250}
+              series={[
+                { data: pData, label: "revenue", id: "pvId" },
+                { data: uData, label: "transaction ", id: "uvId" },
+              ]}
+              xAxis={[{ data: xLabels, scaleType: "band" }]}
+            />
+              </div>
             </div>
           </div>
         </Box>
